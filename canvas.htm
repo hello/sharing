@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+      }
+    </style>
+    <script>
+    (function(d) {
+    var config = {
+      kitId: 'ieg3vmb',
+      scriptTimeout: 3000
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+  </script>
+  <link rel="stylesheet" href="https://daneden.github.io/animate.css/animate.min.css" />
+  </head>
+  <body>
+    <br/></br/><br/></br/><br/></br/><br/></br/><br/></br/>
+    <canvas id="myCanvas" class="animated zoomIn" width="1500" height="1200"></canvas>
+    <script>
+    /*var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    var centerX = canvas.width / 2;
+    var centerY = canvas.height / 2;
+    var radius = 55;
+
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = '#65D7AC';
+    context.fill();
+    context.lineWidth = 0;
+    context.strokeStyle = '#fff';
+    context.stroke();*/
+    var canvas = document.getElementById('myCanvas');
+    canvas.width = 1500;
+    canvas.height = 1200;
+    canvas.style.width = "750px";
+    canvas.style.height = "600px";
+    var context = canvas.getContext('2d');
+    context.scale(2,2);
+
+    var myCircle = {
+      radius: 30,
+      startAngle: 0,
+      endAngle: Math.PI * 2,
+      counterClockwise: false
+    };
+
+    x = -30;
+    y = -10;
+
+    labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    for (i = 0; i < 35; i++) {
+      if (i < 8 && i > 0) {
+        context.beginPath();
+        context.font = '400 14px "proxima-nova", sans-serif';
+        context.fillStyle = '#eee';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(labels[i - 1].toUpperCase(), x, 30);
+        context.stroke();
+      }
+
+      if ((i % 7) == 0) {
+        y += 100;
+        x = -30;
+      }
+
+      x += 100;
+
+      text = Math.floor((Math.random() * 100) + 1);
+
+      if (i < 2) {
+        text = 0
+      } else if (i > 32) {
+        text = 0
+      }
+
+      drawCircle(x, y, myCircle, context, text);
+    }
+
+
+    function drawCircle(x, y, myCircle, context, text) {
+      context.beginPath();
+      context.arc(x, y, myCircle.radius, myCircle.startAngle, myCircle.endAngle, myCircle.counterClockwise);
+
+      if (text == 0) {
+        context.fillStyle = "#F8F8F9";
+        context.strokeStyle = '#F3F3F4';
+      } else if (text >= 80) {
+        context.fillStyle = "#65D7AC";
+      } else if (text >= 60) {
+        context.fillStyle = "#FFC43A";
+      } else {
+        context.fillStyle = "#FF623C";
+      }
+
+      context.fill();
+      context.strokeStyle = '#fff';
+      context.stroke();
+      context.closePath();
+      //context.fillStyle = '#999';
+      if (text > 0) {
+        context.font = '400 19px "proxima-nova", sans-serif';
+        context.fillStyle = '#fff';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(text, x, y);
+        context.stroke();
+      }
+    }
+    </script>
+  </body>
+</html>
