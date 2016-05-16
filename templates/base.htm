@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+  {% include 'components/meta.htm' %}
+  {% include 'components/links.htm' %}
+
+  <title>{% block title %}Hello{% endblock %}</title>
+  {% endblock %}
+
+
+  <script src="//use.typekit.com/ieg3vmb.js"></script>
+
+</head>
+
+<body class="{{page}}">
+  {% include 'components/header.htm' %}
+
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% include 'components/footer.htm' %}
+
+  <script>
+  {# Adroll #}
+  adroll_adv_id = "3RDGKGSDLZB53HVLAEXW37";
+  adroll_pix_id = "S6IKO662BJFNXPGPMPQMQY";
+  (function () {
+    var _onload = function(){
+      if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+      if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+      var scr = document.createElement("script");
+      var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+      scr.setAttribute('async', 'true');
+      scr.type = "text/javascript";
+      scr.src = host + "/j/roundtrip.js";
+      ((document.getElementsByTagName('head') || [null])[0] ||
+        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+    };
+    if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+    else {window.attachEvent('onload', _onload)}
+  }());
+
+  {# Mixpanel #}
+  (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+  for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+  mixpanel.init("5c7f244946a03a074ca6e5f7a7aec645");
+  mixpanel.identify("{{uuid}}");
+
+  {# Google Analytics #}
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-52962810-2', 'auto', {
+    'clientId': '{{uuid}}'
+  });
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+  {# Facebook #}
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '638653542916166');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=638653542916166&amp;ev=PageView&amp;noscript=1" />
+  </noscript>
+
+  {#}<script src="//platform.twitter.com/oct.js"></script>
+  <script>
+  twttr.conversion.trackPid('l4rw6');
+  </script>
+  <noscript>
+    <img height="1" width="1" alt="" style="display:none" src="https://analytics.twitter.com/i/adsct?txn_id=l4rw6&amp;p_id=Twitter" />
+    <img height="1" width="1" alt="" style="display:none" src="//t.co/i/adsct?txn_id=l4rw6&amp;p_id=Twitter" />
+  </noscript>#}
+
+  <script>
+  /* <![CDATA[ */
+  var google_conversion_id = 965426265;
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
+  </script>
+  <script src="//www.googleadservices.com/pagead/conversion.js"></script>
+  <noscript>
+    <div style="display:inline">
+      <img height="1" width="1" alt="" style="border-style:none" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/965426265/?value=0&amp;guid=ON&amp;script=0"/>
+    </div>
+  </noscript>
+
+  {% assets "js_all" %}
+    <script src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+  {% block footer %}{% endblock %}
+</body>
+</html>

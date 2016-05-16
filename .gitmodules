@@ -1,0 +1,3 @@
+[submodule "scripts/frontend-commit"]
+	path = scripts/frontend-commit
+	url = git@github.com:hello/frontend-commit.git

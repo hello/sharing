@@ -1,0 +1,147 @@
+#header-container {
+  width: 100%;
+  z-index: 1001;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  padding: 25px 0;
+  border-bottom: 1px solid transparent;
+
+  @media screen and (max-width: 48em) {
+    padding: 10px 0;
+  }
+}
+
+#header-container .background {
+  max-width: $max_width * 1px;
+  margin: 0 auto;
+  padding: 15px 0;
+  @include transition(border .25s ease-in-out, background .25s ease-in-out);
+  border-bottom: 1px solid transparent;
+}
+
+#header {
+  max-width: ($max_width + 20) * 1px;
+  width: 100%;
+  float: inherit;
+  background-position: center top;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  height: 200px;
+  background-color: #fff;
+
+  @media screen and (max-width: 48em) {
+    height: 120px;
+  }
+}
+
+header {
+  max-width: $max_width * 1px;
+  margin: 0 auto;
+  padding: 0;
+  @include transition(background-color .5s ease-in-out);
+}
+
+header .logo a {
+  $width: 134px;
+  $height: 40px;
+  width: $width;
+  height: $height;
+  display: block;
+  @include transition(background .25s ease-in-out, opacity .25s ease-in-out, width 0.25s ease-in-out);
+  background-position: left center;
+  background-repeat: no-repeat;
+  @include retina($image_root + 'logo_light', 'png', $width, $height);
+}
+
+.floating header .logo a {
+  width: 39px;
+  //background: red;
+}
+
+header .logo a h1 {
+  display: none;
+}
+
+header ul {
+  float: right;
+  list-style: none;
+  padding: 0;
+}
+
+header ul li {
+  float: left;
+  margin-left: 5px;
+}
+
+header ul li a,
+header ul li a:visited {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  display: block;
+  font-size: $header_font_size;
+  padding: 10px 16px;
+  @include border-radius(40px);
+  @include transition(color .2s ease-in-out, background .25s ease-in-out, opacity .25s ease-in-out);
+  border: 2px solid transparent;
+  opacity: 1;
+}
+
+header ul li a:hover {
+  color: #fff;
+}
+
+header ul li a:active,
+header ul li a.current {
+  color: #fff;
+  border-color: #fff;
+}
+
+header ul li a.store,
+header.dark ul li a.store {
+  color: #fff !important;
+  margin-left: 10px;
+  background: #019cde !important;
+}
+
+header ul li a.store:hover,
+header.dark ul li a.store:hover {
+  @include opacity(0.75);
+  @include transition(opacity .15s ease-out);
+}
+
+/**
+ * Dark nav
+ **/
+header.dark .logo a {
+  $width: 134px;
+  $height: 40px;
+  //width: $width;
+  //height: $height;
+  @include retina($image_root + 'logo_dark', 'png', $width, $height);
+  //@include transition(background .25s ease-in-out, opacity .25s ease-in-out);
+}
+
+header.dark a h1 {
+  display: none;
+}
+
+header.dark ul li a,
+header.dark ul li a:visited {
+  color: #3B3C39;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.015);
+  @include transition(color .2s ease-in-out, background .25s ease-in-out, opacity .25s ease-in-out);
+}
+
+header.dark ul li a:hover {
+  //background: rgba(0, 0, 0, 0.025);
+  //@include transition(color .2s ease-in);
+}
+
+header.dark ul li a:active,
+header.dark ul li a.current {
+  color: #3B3C39;
+  //background: rgba(0, 0, 0, 0.025);
+  border-color: #3B3C39;
+}

@@ -1,0 +1,207 @@
+$top_offset: 70px;
+
+.mobile-menu {
+  display: none;
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  position: relative;
+  @include transition(all 600ms ease);
+  z-index: 100003;
+  margin-top: 10px;
+  float: right
+}
+
+.mobile-menu span.text {
+  color: #fff;
+  position: absolute;
+  top: 2px;
+  right: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  display: none;
+}
+
+.mobile-menu span.hamburger {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  @include transform(translateX(-50%) translateY(-50%));
+  width: 18px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.dark .mobile-menu span.hamburger {
+  background-color: #3B3C39;
+}
+
+.dark .mobile-menu  span.text {
+  color: #3B3C39;
+}
+
+.mobile-menu span.hamburger:before,
+.mobile-menu span.hamburger:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  right: 0;
+  @include transform(translateZ(0));
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  @include transition(transform .3s, background .3s);
+}
+
+.dark .mobile-menu span:before,
+.dark .mobile-menu span:after {
+  background-color: #3B3C39;
+}
+
+.mobile-menu span.hamburger:before {
+  @include transform(translateY(-6px) rotate(0deg));
+}
+.mobile-menu span.hamburger:after {
+  @include transform(translateY(6px) rotate(0deg));
+}
+
+/*.mobile-menu:hover span:before {
+  @include transform(translateY(-8px) rotate(0deg));
+}
+
+.mobile-menu:hover span:after {
+  @include transform(translateY(8px) rotate(0deg));
+}*/
+
+.mobile-menu span.hamburger.is-clicked {
+  background-color: transparent !important;
+}
+
+.mobile-menu span.hamburger.is-clicked:before,
+.mobile-menu span.hamburger.is-clicked:after {
+  background-color: #fff;
+}
+
+.mobile-menu span.hamburger.is-clicked:before,
+.mobile-menu span.hamburger.is-clicked:after {
+  background-color: #fff;
+}
+
+.dark .mobile-menu span.hamburger.is-clicked:before,
+.dark .mobile-menu span.hamburger.is-clicked:after {
+  background-color: #3B3C39;
+}
+
+.mobile-menu span.hamburger.is-clicked:before {
+  @include transform(translateY(0) rotate(45deg));
+}
+.mobile-menu span.hamburger.is-clicked:after {
+  @include transform(translateY(0) rotate(-45deg));
+}
+
+.menu {
+  display: block;
+  background-color: #f8f8f8;
+  /*$size: 35px;
+  width: $size;
+  height: $size;
+  @include retina($image_root + 'logo_mark', 'png', $size, $size);
+  background-position: 45px 25px;
+  background-repeat: no-repeat;*/
+
+  height: 100%;
+  width: 100%;
+  left: 13%;
+  top: 0%;
+  position: fixed;
+  //text-transform: uppercase;
+  @include transform(translateX(100%));
+  @include transition(transform 0.5s ease-in-out);
+  z-index: 201;
+  @include box-shadow(inset 10px 0 15px -10px rgba(0,0,0,0.15));
+}
+
+.menu li.sep {
+  width: 100%;
+  border-bottom: 1px solid #f8f8f8;
+  margin: 0 auto;
+}
+
+#header-container,
+#content,
+#header,
+footer {
+  @include transition(transform 0.5s ease-in-out);
+}
+
+@media screen and (max-width: 48em) {
+  /*.menu-open .header,
+  .menu-open .content {
+    @include transform(translateX(50%));
+    @include box-shadow(0 0 1em rgba(0,0,0,.25));
+  }*/
+  .menu-open #header-container,
+  .menu-open #content,
+  .menu-open #header,
+  .menu-open footer {
+    @include transform(translateX(-87%));
+    @include transition(transform 0.5s ease-in-out);
+    //@include box-shadow(0 0 1em rgba(0,0,0,.25));
+  }
+
+  header ul li a {
+    display: none;
+  }
+
+  header ul li a.store {
+    display: block;
+    margin-top: 3px !important;
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .menu-open .menu {
+    @include transform(translateX(87%));
+    @include transform(translateY(0));
+  }
+
+  .menu div {
+    display: table;
+    height: 100%;
+    width: 100%;
+  }
+
+  .menu ul {
+    display: table-cell;
+    vertical-align: middle;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu ul li {
+    color: #3b3c39;
+    float: none;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 1em 0;
+    padding: 0 0 0 45px;
+    text-align: left;
+  }
+
+  .menu ul li a {
+    color: #3b3c39;
+    text-decoration: none;
+  }
+}

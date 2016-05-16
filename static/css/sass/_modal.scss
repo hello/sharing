@@ -1,0 +1,57 @@
+/*
+ * Tests for CSS Modal
+ * by @drublic - http://drublic.de/
+ *
+ * http://drublic.github.com/css-modal
+ */
+// Include Modal
+
+// Configuration variables
+@import 'modal/modal-config';
+
+// Core operations
+@import 'modal/modal-core';
+
+// Modal animations
+@import 'modal/modal-animations';
+
+// Theme styles
+@import 'modal/modal-theme';
+
+// Include the modal element with it's selector
+@import 'modal/modal-element';
+
+@import "modal/plugins/modal-gallery";
+@import "modal/plugins/modal-maxwidth";
+@import "modal/plugins/modal-resize";
+@import "modal/plugins/modal-spinner";
+@import "modal/plugins/modal-stretch";
+
+// Apply the modal with all its possible parts
+._modal {
+	@extend %modal;
+}
+
+.modal--fade {
+	@extend %modal--transition-fade;
+}
+
+.modal--zoomin {
+	@extend %modal--transition-zoomIn;
+}
+
+.modal--plainscreen {
+	@extend %modal--transition-plainScreen;
+}
+
+[data-cssmodal-resize] {
+	@extend %modal--resize;
+}
+
+[data-cssmodal-maxwidth] {
+	@extend %modal--resize;
+}
+
+.spinner {
+	@extend %spinner;
+}

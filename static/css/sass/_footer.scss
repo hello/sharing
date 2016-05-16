@@ -1,0 +1,86 @@
+footer {
+  max-width: $max_width * 1px;
+  color: $footer_font_color;
+  font-size: $footer_font_size;
+  margin: 0 auto;
+  width: 100%;
+  padding: 50px 0 100px 0;
+  font-size: 13px;
+
+  @media screen and (max-width: 48em) {
+    padding: 50px 0;
+  }
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0 0 0;
+}
+
+footer ul li {
+  font-weight: 600;
+  color: #999;
+  display: block;
+  text-align: left;
+  line-height: 1.75em;
+  @include transition(color .25s ease-in-out, opacity .25s ease-in-out);
+}
+
+footer ul li a,
+footer ul li a:visited {
+  color: #999;
+  font-weight: 400;
+  text-decoration: none;
+  @include transition(color .25s ease-in-out, opacity .25s ease-in-out);
+}
+
+footer ul li a:hover {
+  color: #888;
+  text-decoration: underline;
+}
+
+footer ul li a.current {
+  color: #666;
+}
+
+footer .logo {
+  padding-top: 80px;
+  text-align: right;
+
+  @media screen and (max-width: 48em) {
+    padding-top: 60px;
+    text-align: left;
+  }
+}
+
+footer .logo em {
+  $size: 35px;
+  width: $size;
+  height: $size;
+  @include retina($image_root + 'logo_mark', 'png', $size, $size);
+  display: inline-block;
+  background-repeat: no-repeat;
+  margin: -12px 15px -12px 0;
+
+  @media screen and (max-width: 48em) {
+    float: left;
+  }
+}
+
+footer .language {
+  text-align: left;
+  margin-top: 25px;
+}
+
+footer .language a {
+  $size: 15px;
+  @include retina($image_root + 'earth', 'jpg', $size, $size);
+  background-repeat: no-repeat;
+  background-position: left;
+  color: #a9a9a9;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 2px 0 0 25px;
+  @include transition(color .25s ease-in-out, opacity .25s ease-in-out);
+}

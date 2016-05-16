@@ -1,0 +1,23 @@
+$base_width: 1180;
+$line_width: 1360;
+$max_width: 1360;
+
+$base_padding: 40px;
+$body_font_color: #3B3C39;
+$body_font_family: "proxima-nova", sans-serif !important;
+$body_font_size: 14px;
+$font_weight_thin: 100;
+$font_weight_regular: 400;
+$font_weight_bold: 700;
+
+$footer_font_color: #838383;
+$header_font_size: 14px;
+$footer_font_size: 13px;
+
+$static_root: '/static';
+$image_root: $static_root + '/img/';
+
+$gutter_width: 24px;
+
+$blue-color: #009CFF;
+$blue-color-dark: #007ECC;

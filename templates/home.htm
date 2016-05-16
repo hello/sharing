@@ -1,0 +1,106 @@
+{% extends "base.htm" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<canvas id="canvas"></canvas>
+{% endblock %}
+
+{% block footer %}
+<script>
+// DOM Ready
+$(function() {
+  try {
+    Typekit.load({
+      active: function() {
+        //  Javascript to execute when fonts become active
+        var canvas = document.getElementById('canvas');
+        var canvas_width = 1500,
+            canvas_height = 1100;
+        canvas.width = canvas_width;
+        canvas.height = canvas_height;
+        canvas.style.width = String(canvas_width / 2) + "px";
+        canvas.style.height = String(canvas_height / 2) + "px";
+        var context = canvas.getContext('2d');
+        context.scale(2,2);
+
+        var myCircle = {
+          radius: 30,
+          startAngle: 0,
+          endAngle: Math.PI * 2,
+          counterClockwise: false
+        };
+
+        x = -30;
+        y = -10;
+
+        labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+        for (i = 0; i < 35; i++) {
+          if (i < 8 && i > 0) {
+            context.beginPath();
+            context.font = '400 14px "proxima-nova", sans-serif';
+            context.fillStyle = '#ddd';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(labels[i - 1].toUpperCase(), x, 30);
+            context.stroke();
+          }
+
+          if ((i % 7) == 0) {
+            y += 100;
+            x = -30;
+          }
+
+          x += 100;
+
+          text = Math.floor((Math.random() * 100) + 1);
+
+          if (i < 2) {
+            text = 0
+          } else if (i > 32) {
+            text = 0
+          }
+
+          drawCircle(x, y, myCircle, context, text);
+        }
+
+        function drawCircle(x, y, myCircle, context, text) {
+          context.beginPath();
+          context.arc(x, y, myCircle.radius, myCircle.startAngle, myCircle.endAngle, myCircle.counterClockwise);
+
+          if (text == 0) {
+            context.fillStyle = "#F8F8F9";
+            context.strokeStyle = '#F3F3F4';
+          } else if (text >= 80) {
+            context.fillStyle = "#65D7AC";
+            context.strokeStyle = '#fff';
+          } else if (text >= 60) {
+            context.fillStyle = "#FFC43A";
+            context.strokeStyle = '#fff';
+          } else {
+            context.fillStyle = "#FF623C";
+            context.strokeStyle = '#fff';
+          }
+
+          context.fill();
+          context.stroke();
+          context.closePath();
+          //context.fillStyle = '#999';
+          if (text > 0) {
+            context.font = '400 19px "proxima-nova", sans-serif';
+            context.fillStyle = '#fff';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(text, x, y);
+            context.stroke();
+          }
+        }
+      }
+    })
+  } catch(e) {
+    console.log(e);
+  }
+});
+</script>
+{% endblock %}
