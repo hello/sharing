@@ -3,7 +3,14 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-<canvas id="canvas"></canvas>
+<img style="border-radius:100px" width="100" height="100" src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-1/c85.43.312.312/12512685_10207721097444459_1940352944983974939_n.jpg?oh=fcf5ea4e5d957f3fe0b11773024acea0&oe=57E2A54C" />
+
+<div class="clear"></div>
+
+<h3 style="font-weight:400; font-size: 22px; margin: 20px 0 50px 0;">Frankie's Sleep Trends</h3>
+
+<h4 style="font-size: 14px; color: #5C6B7F; text-transform:uppercase; text-align:left; padding: 0 0 5px 0;width:670px; display:block;border-bottom: 1px solid #E8EAED; margin:0 auto;margin-bottom:15px; ">Sleep Score &#149; Apr 20 - May 20</h4>
+<canvas id="canvas" style=""></canvas>
 {% endblock %}
 
 {% block footer %}
@@ -17,10 +24,17 @@ $(function() {
         var canvas = document.getElementById('canvas');
         var canvas_width = 1500,
             canvas_height = 1100;
+
+        var requestAnimationFrame = window.requestAnimationFrame ||
+                        window.mozRequestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.msRequestAnimationFrame;
+
         canvas.width = canvas_width;
         canvas.height = canvas_height;
         canvas.style.width = String(canvas_width / 2) + "px";
         canvas.style.height = String(canvas_height / 2) + "px";
+
         var context = canvas.getContext('2d');
         context.scale(2,2);
 
