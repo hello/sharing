@@ -1,0 +1,81 @@
+{% extends "base.htm" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<style>
+.profile img {
+  margin-top: -50px;
+  border-radius: 100px
+}
+.profile h3 {
+  font-weight: 400;
+  font-size: 22px;
+  margin: 20px 0 0 0;
+}
+.profile h4 {
+  font-size: 16px;
+  padding: 10px 0;
+  font-weight: 300;
+  color: #85909F;
+}
+
+.insight #content {
+  padding: 0;
+  border-bottom-color: #f8f8f8;
+}
+
+
+</style>
+
+<section class="profile">
+  <div class="pure-g">
+    <div class="pure-u-sm-1-24 pure-u-4-24"></div>
+    <div class="pure-u-sm-11-12 pure-u-16-24">
+      <img width="100" height="100" src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-1/c85.43.312.312/12512685_10207721097444459_1940352944983974939_n.jpg?oh=fcf5ea4e5d957f3fe0b11773024acea0&oe=57E2A54C" />
+
+      <div class="clear"></div>
+
+      <h3>Frankie's Sense</h3>
+      <h4>Wake Variance &#149; May 24, 2016</h4>
+    </div>
+    <div class="pure-u-sm-1-24 pure-u-4-24"></div>
+  </div>
+</section>
+
+<section class="text">
+  <div class="pure-g">
+    <div class="pure-u-sm-1-24 pure-u-4-24"></div>
+    <div class="pure-u-sm-11-12 pure-u-16-24">
+      <h5>Waking up to Better Sleep</h5>
+
+      <blockquote cite="https://store.{{root_domain}}/">
+        The time you wake up each morning is very consistent, which is great. It varied an average of 0.7 hours last week, which is less than 82% of other people using Sense.
+      </blockquote>
+
+      <p>The circadian clock is a sequence of timed chemical cues that tells your body when to wind down or wake up. Your ability to fall into quality sleep relies in large part on the strength of these signals. Disruptions to the clock, such as time zone changes or having a variable work schedule, can affect how well you sleep. Much of the clock is determined by genetics — you might just naturally be a “night owl” or “morning lark” that wakes up particularly late or early in the day. Whatever your sleep schedule, keeping it consistent — particularly your wake time — will keep these signals strong, and the quality of your sleep high.</p>
+      <p>The circadian clock is a sequence of timed chemical cues that tells your body when to wind down or wake up. Your ability to fall into quality sleep relies in large part on the strength of these signals. Disruptions to the clock, such as time zone changes or having a variable work schedule, can affect how well you sleep. Much of the clock is determined by genetics — you might just naturally be a “night owl” or “morning lark” that wakes up particularly late or early in the day. Whatever your sleep schedule, keeping it consistent — particularly your wake time — will keep these signals strong, and the quality of your sleep high.</p>
+    </div>
+    <div class="pure-u-sm-1-24 pure-u-4-24"></div>
+  </div>
+</section>
+
+<section class="meet-sense">
+  <div class="pure-g">
+    <div class="pure-u-sm-1-24 pure-u-7-24"></div>
+    <div class="pure-u-sm-11-12 pure-u-10-24">
+      <h5>Meet Sense</h5>
+
+      <img src="/static/img/video.jpg" style="width:100%;margin: 15px 0" />
+
+      <p>
+        <a href="https://store.{{root_domain}}/">Buy Sense</a>
+        Sense by Hello is a simple system that tracks your sleep behavior, monitors the environment of your bedroom and reinvents the alarm.
+      </p>
+
+    </div>
+    <div class="pure-u-sm-1-24 pure-u-7-24"></div>
+  </div>
+</section>
+
+{% endblock %}

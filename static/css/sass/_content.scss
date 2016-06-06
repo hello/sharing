@@ -6,77 +6,6 @@
   padding-bottom: 60px;
 }
 
-#content section {
-  text-align: left;
-  max-width: $base_width * 1px;
-  margin: 0 auto;
-  color: #424242;
-}
-
-#content section span {
-  font-size: 13px;
-  text-transform: uppercase;
-  opacity: 0.65;
-  font-weight: 400;
-  display: block;
-
-  @media screen and (max-width: 48em) {
-    font-size: 12px;
-  }
-}
-
-#content section h3 {
-  font-weight: 300; // 100
-  font-size: 38px;
-  line-height: 1.10em;
-  padding: 10px 0 15px 0;
-  max-width: 12em;
-  letter-spacing: -1px;
-
-  @media screen and (max-width: 48em) {
-    font-size: 34px;
-    padding: 15px 0 20px 0;
-  }
-}
-
-#content section p {
-  max-width: 28em;
-  opacity: 0.75;
-  font-size: 17px;
-  line-height: 1.5em;
-  font-weight: 400; // 300
-  padding-bottom: 15px;
-
-  @media screen and (max-width: 48em) {
-    font-size: 15px;
-    max-width: none;
-  }
-}
-
-#content section p:last-of-type {
-  padding-bottom: 0;
-}
-
-#content section p a {
-  font-weight: 600;
-  font-size: 12px;
-  color: $blue_color_dark;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  @include retina($image_root + 'arrow_blue', 'png', 5px, 6px);
-  background-position: center right;
-  background-repeat: no-repeat;
-  padding-right: 10px;
-  @include transition(padding 0.1s linear);
-}
-
-#content section p a:hover {
-  text-decoration: underline;
-  padding-right: 15px;
-  @include transition(padding 0.1s linear);
-}
-
 #content .center {
   text-align: center;
 }
@@ -118,4 +47,44 @@
 
 #content .buy h3 {
   padding-top: 0;
+}
+
+#content .meet-sense {
+  text-align: left;
+  background:#f8f8f8;
+  margin-top: 80px;
+  padding-bottom: 60px;
+
+  @media screen and (max-width: 48em) {
+    margin-top: 20px;
+  }
+}
+
+#content .meet-sense h5 {
+  font-size: 22px;
+  font-weight: 400;
+  color: #162B48;
+  padding: 120px 0 0 0;
+
+  @media screen and (max-width: 48em) {
+    padding-top: 30px;
+  }
+}
+
+#content .meet-sense p {
+  font-size: 16px;
+  color: #5C6B7F;
+  line-height: 1.5em;
+}
+
+#content .meet-sense p a {
+  background-color: #009AFF;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  float: right;
+  margin: 0 0 0 20px;
 }

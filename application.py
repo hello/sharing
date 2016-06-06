@@ -79,7 +79,7 @@ assets.register('css_all', css)
 application.jinja_env.globals['year'] = date.today().year
 application.jinja_env.globals['root_domain'] = os.getenv('ROOT_DOMAIN')
 
-"""@application.before_request
+@application.before_request
 def before_request():
     session.permanent = True
 
@@ -94,7 +94,7 @@ def before_request():
 @application.route('/dump_session', methods=['GET'])
 def dump_session():
     resp = jsonify(session)
-    return resp"""
+    return resp
 
 @application.route('/robots.txt', methods=['GET'])
 def robots():
