@@ -1,6 +1,21 @@
 {% extends "base.htm" %}
 
-{% block title %}Waking up to Better Sleep - Hello{% endblock %}
+{% block title %}{{title}} - {{category}} - Hello{% endblock %}
+
+{% block meta %}
+{{ super() }}
+<meta name="description" content="{{content_stripped|safe}}" />
+
+<meta property="og:url" content="https://share.{{root_domain}}/{{uuid}}" />
+<meta property="og:title" content="{{title}} - {{category}} - Hello" />
+<meta property="og:description" content="{{content_stripped|safe}}" />
+<meta property="og:image" content="{{hero.phone_2x}}" />
+
+<meta name="twitter:title" content="{{title}} - {{category}} - Hello" />
+<meta name="twitter:url" content="https://share.{{root_domain}}/{{uuid}}" />
+<meta name="twitter:description" content="{{content_stripped|safe}}" />
+<meta name="twitter:image" content="{{hero.phone_2x}}" />
+{% endblock %}
 
 {% block content %}
 <style>
@@ -25,19 +40,21 @@
   border-bottom-color: #f8f8f8;
 }
 
-
+.insight #header {
+  background-image: url({{hero.phone_2x}});
+}
 </style>
 
 <section class="profile">
   <div class="pure-g">
     <div class="pure-u-sm-1-24 pure-u-4-24"></div>
     <div class="pure-u-sm-11-12 pure-u-16-24">
-      <img width="100" height="100" src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t1.0-1/c85.43.312.312/12512685_10207721097444459_1940352944983974939_n.jpg?oh=fcf5ea4e5d957f3fe0b11773024acea0&oe=57E2A54C" />
+      <img width="100" height="100" src="{{photo}}" />
 
       <div class="clear"></div>
 
-      <h3>Frankie's Sense</h3>
-      <h4>Wake Variance &#149; May 24, 2016</h4>
+      <h3>{{name}}'s Sense</h3>
+      <h4>{{category}} &#149; {{time}}</h4>
     </div>
     <div class="pure-u-sm-1-24 pure-u-4-24"></div>
   </div>
@@ -47,14 +64,15 @@
   <div class="pure-g">
     <div class="pure-u-sm-1-24 pure-u-4-24"></div>
     <div class="pure-u-sm-11-12 pure-u-16-24">
-      <h5>Waking up to Better Sleep</h5>
+      <h5>{{title}}</h5>
 
-      <blockquote cite="https://store.{{root_domain}}/">
-        The time you wake up each morning is very consistent, which is great. It varied an average of 0.7 hours last week, which is less than 82% of other people using Sense.
-      </blockquote>
+      {% if message %}
+        <blockquote cite="https://store.{{root_domain}}/">
+          {{message|safe}}
+        </blockquote>
+      {% endif %}
 
-      <p>The circadian clock is a sequence of timed chemical cues that tells your body when to wind down or wake up. Your ability to fall into quality sleep relies in large part on the strength of these signals. Disruptions to the clock, such as time zone changes or having a variable work schedule, can affect how well you sleep. Much of the clock is determined by genetics — you might just naturally be a “night owl” or “morning lark” that wakes up particularly late or early in the day. Whatever your sleep schedule, keeping it consistent — particularly your wake time — will keep these signals strong, and the quality of your sleep high.</p>
-      <p>The circadian clock is a sequence of timed chemical cues that tells your body when to wind down or wake up. Your ability to fall into quality sleep relies in large part on the strength of these signals. Disruptions to the clock, such as time zone changes or having a variable work schedule, can affect how well you sleep. Much of the clock is determined by genetics — you might just naturally be a “night owl” or “morning lark” that wakes up particularly late or early in the day. Whatever your sleep schedule, keeping it consistent — particularly your wake time — will keep these signals strong, and the quality of your sleep high.</p>
+      {{content|safe}}
     </div>
     <div class="pure-u-sm-1-24 pure-u-4-24"></div>
   </div>

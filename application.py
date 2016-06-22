@@ -24,6 +24,9 @@ import templates
 
 import pylibmc
 import bugsnag
+import boto3
+import re
+
 from bugsnag.flask import handle_exceptions
 
 logging.config.fileConfig('logging.ini')
@@ -112,12 +115,81 @@ def favicon():
 def healthcheck():
     return jsonify({'status': 200})
 
+@application.route('/dynamo/<uuid>')
+def dynamo(uuid):
+    dynamodb = boto3.resource('dynamodb')
+
+    table = dynamodb.Table('sharing')
+    response = table.get_item(Key={'uuid': uuid})
+
+
+
+
+    import pprint
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(response)
+
+    item = response['Item']
+    page = item['share_type']
+    #print(item)
+
+    import json
+    import arrow
+    import markdown
+
+    md = markdown.Markdown()
+
+
+    payload = json.loads(item['payload'])
+    message = md.convert(payload['message'])
+
+    table = dynamodb.Table('prod_profile_photo')
+    response = table.get_item(Key={'account_id': payload['account_id']})
+    photo = response['Item']['density_extra_high']
+
+    print '***'
+    pp.pprint(response)
+
+    timestamp = arrow.Arrow.fromtimestamp(str(payload['timestamp'])[:-3])
+
+
+
+    """return jsonify({
+        'item': item['share_type'],
+        'name': item['name'],
+        'time': timestamp.format('MMMM DD, YYYY')
+    })"""
+
+    html = render_template(
+        page + '.htm',
+        page=page,
+        name=item['name'],
+        time=timestamp.format('MMMM DD, YYYY'),
+        title=payload['title'],
+        message=message,
+        message_stripped=strip_tags(message),
+        content=message,
+        content_stripped=strip_tags(message),
+        category=payload['category_name'],
+        hero=payload['image'],
+        photo=photo,
+        uuid=uuid
+    )
+    return templates.prepare_template(html)
+
+
 @application.route('/', defaults={'path': 'home'})
 @application.route('/<path:path>')
 def default(path):
     html = render_template(path + '.htm', page=path)
     return templates.prepare_template(html)
     #abort(404)
+
+def strip_tags(raw_html, length=200):
+    cleanr = re.compile('<.*?>')
+    cleaned = re.sub(cleanr,'', raw_html).replace('\n', '')
+
+    return cleaned[:length] + (cleaned[length:] and '...')
 
 if __name__ == '__main__':
     logger.debug("Time is: %s", int(time.time() * 1000))
