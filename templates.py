@@ -60,7 +60,7 @@ def prepare_template(html):
             url = url.replace('@' + retina + 'x', '')
             retina = '@' + retina + 'x'
 
-        new_url = '//' + os.getenv('ROOT_CDN') + '/' + hashlib.md5(('marketing' + str(version) + asset).encode('utf-8')).hexdigest() + retina + '.' + ext
+        new_url = '//' + os.getenv('ROOT_CDN') + '/' + hashlib.md5(('sharing' + str(version) + asset).encode('utf-8')).hexdigest() + retina + '.' + ext
         html = html.replace(url, new_url)
 
         if (new_url + '" data-no-retina' not in html) and ext in ('jpg', 'jpeg', 'png'):
