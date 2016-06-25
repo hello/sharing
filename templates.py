@@ -33,6 +33,8 @@ def strip_tags(raw_html, length=200):
     cleanr = re.compile('<.*?>')
     cleaned = re.sub(cleanr,'', raw_html).replace('\n', '')
 
+    return cleaned
+
 def prepare_template(html):
     #html = html.replace('https://s3.amazonaws.com/hello-accounts', '//d1hlomd23snoaq.cloudfront.net')
     #html = html.replace('https://s3.amazonaws.com/hello-data', '//d20cc2y87juqnq.cloudfront.net')
