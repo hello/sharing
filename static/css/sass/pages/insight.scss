@@ -63,3 +63,15 @@ body.insight {
     padding-top: 20px;
   }
 }
+
+
+.insight .text h6 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #5C6B7F;
+  padding-top: 5px;
+
+  @media screen and (max-width: 48em) {
+    padding-top: 5px;
+  }
+}

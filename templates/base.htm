@@ -2,31 +2,22 @@
 <html lang="en">
 <head>
   {% block head %}
-  {% include 'components/meta.htm' %}
 
   {% block meta %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
-
   <meta property="og:site_name" content="Hello" />
   <meta property="og:type" content="website" />
-
   <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@hello" />
 
-
-
-  <meta itemprop="brand" content="Hello" />
-  <meta itemprop="currency" content="USD" />
-  <meta itemprop="price" content="129.00" />
-  <meta itemprop="availability" content="in_stock" />
-  <meta itemprop="description" content="Sense by Hello wakes you up feeling great, improves your sleep, and helps you learn how the environment of your bedroom affects your rest." />
-
   <meta http-equiv="x-dns-prefetch-control" content="on" />
   {% endblock %}
+  {% include 'components/links.htm' %}
+
 
   <title>{% block title %}Hello{% endblock %}</title>
   {% endblock %}
