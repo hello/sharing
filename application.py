@@ -108,7 +108,7 @@ def robots():
 
 @application.route('/favicon.ico', methods=['GET'])
 def favicon():
-    response = make_response(open('static/img/favicon.png').read())
+    response = make_response(open('static/img/favicon.png', encoding='utf-8').read())
     response.headers['Content-type'] = 'image/x-icon'
     return response
 
