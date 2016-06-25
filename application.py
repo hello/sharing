@@ -13,7 +13,6 @@ from datetime import date, datetime
 
 import os
 import time
-import utils
 import logging
 import logging.config
 import re
