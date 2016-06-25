@@ -7,7 +7,6 @@ from flask.ext.compress import Compress
 from flask.ext.session import Session
 
 from flask_sslify import SSLify
-#from flask_sitemap import Sitemap
 
 from datetime import date, datetime
 
@@ -39,18 +38,12 @@ Session(application)
 sslify = SSLify(application)
 babel = Babel(application)
 Compress(application)
-#Sitemap(application)
 handle_exceptions(application)
 
 assets = Environment(application)
 assets.url_expire = False
 
 js = Bundle(
-    Bundle(
-        #'js/scrollmagic/ScrollMagic.min.js',
-        #'js/scrollmagic/TweenMax.min.js',
-        #'js/scrollmagic/plugins/animation.gsap.js',
-    ),
     Bundle(
         'js/jquery-2.1.1.js',
         'js/modernizr.js',
