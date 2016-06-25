@@ -8,8 +8,6 @@ import markdown
 import arrow
 
 def insight(item, payload, content, photo, uuid):
-    print '***'
-    print payload
     md = markdown.Markdown()
     timestamp = arrow.Arrow.fromtimestamp(str(payload['timestamp'])[:-3])
 
