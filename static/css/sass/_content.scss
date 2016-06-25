@@ -52,7 +52,7 @@
 #content .meet-sense {
   text-align: left;
   background:#f8f8f8;
-  margin-top: 60px;
+  margin-top: 80px;
   padding-bottom: 60px;
 
   @media screen and (max-width: 48em) {
@@ -64,7 +64,7 @@
   font-size: 22px;
   font-weight: 400;
   color: #162B48;
-  padding: 100px 0 0 0;
+  padding: 120px 0 0 0;
 
   @media screen and (max-width: 48em) {
     padding-top: 30px;
@@ -74,7 +74,7 @@
 #content .meet-sense p {
   font-size: 16px;
   color: #5C6B7F;
-  line-height: 1.5em;
+  line-height: 1.35em;
 }
 
 #content .meet-sense p a {
@@ -87,4 +87,22 @@
   font-size: 14px;
   float: right;
   margin: 0 0 0 20px;
+}
+
+.profile img {
+  margin-top: -50px;
+  border-radius: 100px
+}
+
+.profile h3 {
+  font-weight: 400;
+  font-size: 22px;
+  margin: 20px 0 0 0;
+}
+
+.profile h4 {
+  font-size: 16px;
+  padding: 10px 0;
+  font-weight: 300;
+  color: #85909F;
 }

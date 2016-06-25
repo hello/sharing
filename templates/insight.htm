@@ -24,34 +24,16 @@
 <link rel="image_src" href="https:{{hero.phone_3x}}" />
 {% endblock %}
 
-{% block content %}
+{% block head %}
+{{ super() }}
 <style>
-.profile img {
-  margin-top: -50px;
-  border-radius: 100px
-}
-.profile h3 {
-  font-weight: 400;
-  font-size: 22px;
-  margin: 20px 0 0 0;
-}
-.profile h4 {
-  font-size: 16px;
-  padding: 10px 0;
-  font-weight: 300;
-  color: #85909F;
-}
-
-.insight #content {
-  padding: 0;
-  border-bottom-color: #f8f8f8;
-}
-
 .insight #header {
   background-image: url({{hero.phone_2x}});
 }
 </style>
+{% endblock %}
 
+{% block content %}
 <section class="profile">
   <div class="pure-g">
     <div class="pure-u-sm-1-24 pure-u-4-24"></div>

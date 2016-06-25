@@ -9,6 +9,10 @@
     height: 185px;
   }
 }
+.insight #content {
+  padding: 0;
+  border-bottom-color: #f8f8f8;
+}
 
 body.insight {
   background-color: #f8f8f8;
@@ -69,7 +73,7 @@ body.insight {
   font-size: 18px;
   font-weight: 400;
   color: #5C6B7F;
-  padding-top: 5px;
+  padding-top: 20px;
 
   @media screen and (max-width: 48em) {
     padding-top: 5px;
