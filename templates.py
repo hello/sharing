@@ -4,7 +4,6 @@ import re
 import os
 import hashlib
 import markdown
-
 import arrow
 
 def insight(item, payload, content, photo, uuid):

@@ -6,15 +6,22 @@
 {{ super() }}
 <meta name="description" content="{{content_stripped|safe}}" />
 
+<meta property="og:site_name" content="Hello" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:url" content="https://share.{{root_domain}}/{{uuid}}" />
-<meta property="og:title" content="{{title}} - {{category}} - Hello" />
+<meta property="og:title" content="{{title}} - {{category}} - Sense by Hello" />
 <meta property="og:description" content="{{content_stripped|safe}}" />
-<meta property="og:image" content="{{hero.phone_2x}}" />
+<meta property="og:image" content="https:{{hero.phone_3x}}" />
 
-<meta name="twitter:title" content="{{title}} - {{category}} - Hello" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@hello" />
+<meta name="twitter:title" content="{{title}} - {{category}} - Sense by Hello" />
 <meta name="twitter:url" content="https://share.{{root_domain}}/{{uuid}}" />
 <meta name="twitter:description" content="{{content_stripped|safe}}" />
-<meta name="twitter:image" content="{{hero.phone_2x}}" />
+<meta name="twitter:image" content="https:{{hero.phone_3x}}" />
+
+<link rel="image_src" href="https:{{hero.phone_3x}}" />
 {% endblock %}
 
 {% block content %}
