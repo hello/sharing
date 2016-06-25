@@ -117,7 +117,7 @@ def favicon():
 def healthcheck():
     return jsonify({'status': 200})
 
-@application.route(/<uuid>')
+@application.route('/<uuid>')
 def dynamo(uuid):
     dynamodb = boto3.resource('dynamodb')
 
@@ -132,7 +132,6 @@ def dynamo(uuid):
     page = item['share_type']
     #print(item)
 
-
     payload = json.loads(item['payload'])
 
     table = dynamodb.Table('prod_profile_photo')
@@ -145,6 +144,8 @@ def dynamo(uuid):
 
     if 'info' in item:
         content = json.loads(item['info'])
+    else:
+        content = {}
         #content = md.convert(content['text'])
 
     return templates.insight(item, payload, content, photo, uuid)
