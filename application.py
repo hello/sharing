@@ -97,24 +97,19 @@ def before_request():
 
 @application.route('/dump_session', methods=['GET'])
 def dump_session():
-    resp = jsonify(session)
-    return resp
-
-@application.route('/robots.txt', methods=['GET'])
-def robots():
-    response = make_response(open('static/robots.txt').read())
-    response.headers['Content-type'] = 'text/plain'
-    return response
-
-@application.route('/favicon.ico', methods=['GET'])
-def favicon():
-    response = make_response(open('static/img/favicon.png', encoding='utf-8').read())
-    response.headers['Content-type'] = 'image/x-icon'
-    return response
+    return jsonify(session)
 
 @application.route('/healthcheck', methods=['GET'])
 def healthcheck():
     return jsonify({'status': 200})
+
+@application.route('/robots.txt', methods=['GET'])
+def robots():
+    return send_file('static/robots.txt', mimetype='text/plain')
+
+@application.route('/favicon.ico', methods=['GET'])
+def favicon():
+    return send_file('static/img/favicon.png', mimetype='image/x-icon')
 
 @application.route('/<uuid>')
 def dynamo(uuid):
@@ -146,17 +141,11 @@ def dynamo(uuid):
     else:
         content = {}
         #content = md.convert(content['text'])
-
     return templates.insight(item, payload, content, photo, uuid)
 
-
 @application.route('/')
-#@application.route('/<path:path>')
-def default(path):
+def default():
     return redirect('https://hello.is/')
-    #html = render_template(path + '.htm', page=path)
-    #return templates.prepare_template(html)
-    #abort(404)
 
 if __name__ == '__main__':
     logger.debug("Time is: %s", int(time.time() * 1000))
