@@ -30,6 +30,10 @@ body.insight {
   padding-bottom: 15px;
 }
 
+.insight .text p:last-of-type {
+  padding-bottom: 0;
+}
+
 .insight .text strong {
   font-weight: 600;
 }
@@ -38,7 +42,6 @@ body.insight {
   border-left: 4px solid #E8EAED;
   padding-left: 15px;
   margin: 20px 0 20px 0;
-
 }
 
 .insight .text blockquote p {

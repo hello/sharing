@@ -14,6 +14,7 @@ def insight(item, payload, content, photo, uuid):
         'insight.htm',
         page='insight',
         name=item['name'],
+        ends_with_s=item['name'].endswith('s'),
         time=timestamp.format('MMMM DD, YYYY'),
         title=content['title'],
         message=md.convert(payload['message']),
