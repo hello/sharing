@@ -1,0 +1,1 @@
+[data-cssmodal-stretch] .modal-inner{top:10%;min-height:80%}[data-cssmodal-stretch] .modal-content{max-height:none !important}[data-cssmodal-stretch] .modal-close:after{top:10%;margin-top:-25px}@media screen and (max-width: 1em){[data-cssmodal-stretch] .modal-inner{top:0}[data-cssmodal-stretch] .modal-close:after{margin-top:0}}

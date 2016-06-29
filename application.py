@@ -48,13 +48,13 @@ js = Bundle(
         'js/jquery-2.1.1.js',
         'js/modernizr.js',
         'js/retina.js',
-        #'js/app.js',
+        'js/app.js',
     ),
     Bundle(
-        #'js/modal.js',
-	    #'js/modal/modal-html5video.js',
-	    #'js/modal/modal-maxwidth.js',
-	    #'js/modal/modal-resize.js',
+        'js/modal.js',
+	    'js/modal/modal-html5video.js',
+	    'js/modal/modal-maxwidth.js',
+	    'js/modal/modal-resize.js',
     ),
     Bundle(
         'http://js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js',
@@ -76,7 +76,7 @@ assets.register('css_all', css)
 application.jinja_env.globals['year'] = date.today().year
 application.jinja_env.globals['root_domain'] = os.getenv('ROOT_DOMAIN')
 
-"""@application.before_request
+@application.before_request
 def before_request():
     session.permanent = True
 
@@ -86,7 +86,7 @@ def before_request():
     if not hasattr(g, 'uuid'):
         g.uuid = session['uuid']
 
-    application.jinja_env.globals['uuid'] = session['uuid']"""
+    application.jinja_env.globals['uuid'] = session['uuid']
 
 @application.route('/dump_session', methods=['GET'])
 def dump_session():
@@ -116,16 +116,6 @@ def dynamo(uuid):
 
     table = dynamodb.Table('prod_profile_photo')
     response = table.get_item(Key={'account_id': insight['account_id']})
-
-    print '***'
-    print insight
-    print '***'
-    print insight['account_id']
-    print '***'
-
-
-    print response
-    print '***'
 
     photo = ''
 

@@ -50,7 +50,7 @@
   padding-top: 0;
 }
 
-#content .meet-sense {
+#content .product {
   text-align: left;
   background:#f8f8f8;
   margin-top: 60px;
@@ -61,24 +61,20 @@
   }
 }
 
-#content .meet-sense h5 {
+#content .product h5 {
   font-size: 22px;
   font-weight: 400;
   color: #162B48;
-  padding: 80px 0 0 0;
-
-  @media screen and (max-width: 48em) {
-    padding-top: 30px;
-  }
+  padding: 10px 0 10px 0;
 }
 
-#content .meet-sense p {
+#content .product p {
   font-size: 16px;
   color: #5C6B7F;
   line-height: 1.35em;
 }
 
-#content .meet-sense p a {
+#content .product p a {
   background-color: #009AFF;
   border-radius: 4px;
   color: #fff;
@@ -106,4 +102,45 @@
   padding: 10px 0;
   font-weight: 300;
   color: #85909F;
+}
+
+
+//// Videos
+
+a.video {
+  width: 100%;
+  height: 300px;
+  background-color: #f8f8f8;
+  display: block;
+  margin: 80px 0 20px 0;
+  @include retina($image_root + 'videos', 'jpg', 500px, 1400px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  /*@media screen and (max-width: 48em) {
+    width: 100%;
+  }*/
+}
+
+a.video img {
+  margin: 115px 246px;
+  @include transition(opacity .25s ease-in-out);
+
+  /*@media screen and (max-width: 48em) {
+    margin: 105px 0 0 140px;
+  }*/
+}
+
+a.video:hover img {
+  @include opacity(0.5);
+  @include transition(opacity .25s ease-in-out);
+}
+
+.how-we-made-your-sense {
+  background-position: center -280px !important;
+}
+
+.product video {
+  float: left;
 }

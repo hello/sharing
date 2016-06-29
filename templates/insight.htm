@@ -9,7 +9,7 @@
 <meta property="og:site_name" content="Hello" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://share.{{root_domain}}/{{uuid}}" />
+<meta property="og:url" content="https://share.{{root_domain}}/insight/{{uuid}}" />
 <meta property="og:title" content="{{title}} - {{category}} - Sense by Hello" />
 <meta property="og:description" content="{{content_stripped|safe}}" />
 <meta property="og:image" content="https:{{hero.phone_3x}}" />
@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@hello" />
 <meta name="twitter:title" content="{{title}} - {{category}} - Sense by Hello" />
-<meta name="twitter:url" content="https://share.{{root_domain}}/{{uuid}}" />
+<meta name="twitter:url" content="https://share.{{root_domain}}/insight/{{uuid}}" />
 <meta name="twitter:description" content="{{content_stripped|safe}}" />
 <meta name="twitter:image" content="https:{{hero.phone_3x}}" />
 
@@ -70,13 +70,27 @@
   </div>
 </section>
 
-<section class="meet-sense">
+<section class="product">
   <div class="pure-g">
     <div class="pure-u-sm-1-24 pure-u-3-24"></div>
     <div class="pure-u-sm-22-24 pure-u-18-24">
-      <h5>Meet Sense</h5>
 
-      <img src="/static/img/video.jpg" style="width:100%;margin: 15px 0" />
+      <div class="modal--show" id="meet-sense" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+        <div class="modal-inner">
+          <div class="modal-content">
+            <video preload="auto" controls>
+              <source src="//player.vimeo.com/external/101139949.hd.mp4?s=28ac378e29847b77e9fb7431f05d2772" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <a href="#!" class="modal-close" data-close="Close" data-dismiss="modal">×</a>
+      </div>
+
+      <a title="Meet Sense" class="video meet-sense" href="#meet-sense">
+        <img alt="" src="/static/img/play.png" width="70" height="70" />
+      </a>
+
+      <h5>Meet Sense</h5>
 
       <p>
         <a href="//store.{{root_domain}}/">Buy Sense</a>
