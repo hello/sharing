@@ -56,9 +56,6 @@ js = Bundle(
 	    'js/modal/modal-maxwidth.js',
 	    'js/modal/modal-resize.js',
     ),
-    Bundle(
-        'http://js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js',
-    ),
     filters='jsmin',
     output='js/compiled.js'
 )
@@ -76,7 +73,7 @@ assets.register('css_all', css)
 application.jinja_env.globals['year'] = date.today().year
 application.jinja_env.globals['root_domain'] = os.getenv('ROOT_DOMAIN')
 
-@application.before_request
+"""@application.before_request
 def before_request():
     session.permanent = True
 
@@ -86,7 +83,7 @@ def before_request():
     if not hasattr(g, 'uuid'):
         g.uuid = session['uuid']
 
-    application.jinja_env.globals['uuid'] = session['uuid']
+    application.jinja_env.globals['uuid'] = session['uuid']"""
 
 @application.route('/dump_session', methods=['GET'])
 def dump_session():
