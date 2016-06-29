@@ -104,37 +104,40 @@ def robots():
 def favicon():
     return send_file('static/img/favicon.png', mimetype='image/x-icon')
 
-@application.route('/<uuid>')
+@application.route('/insight/<uuid>')
 def dynamo(uuid):
     dynamodb = boto3.resource('dynamodb')
 
     table = dynamodb.Table('sharing')
     response = table.get_item(Key={'uuid': uuid})
 
-    ### no name
-    ### no profile
-    ### no "info"
-
-    item = response['Item']
-    page = item['share_type']
-    #print(item)
-
-    payload = json.loads(item['payload'])
+    insight = response['Item']
+    payload = json.loads(insight['payload'])
 
     table = dynamodb.Table('prod_profile_photo')
-    response = table.get_item(Key={'account_id': item['account_id']})
+    response = table.get_item(Key={'account_id': insight['account_id']})
+
+    print '***'
+    print insight
+    print '***'
+    print insight['account_id']
+    print '***'
+
+
+    print response
+    print '***'
+
+    photo = ''
 
     if 'Item' in response:
         photo = response['Item']['density_extra_high']
-    else:
-        photo = ''
 
-    if 'info' in item:
-        content = json.loads(item['info'])
-    else:
-        content = {}
-        #content = md.convert(content['text'])
-    return templates.insight(item, payload, content, photo, uuid)
+    content = {}
+
+    if 'info' in insight:
+        content = json.loads(insight['info'])
+
+    return templates.insight(insight, payload, content, photo, uuid)
 
 @application.route('/')
 def default():
