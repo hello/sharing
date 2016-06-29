@@ -1,7 +1,7 @@
 #header-container {
   width: 100%;
   z-index: 1001;
-  position: absolute;
+  //position: absolute;
   top: 0;
   text-align: center;
   padding: 25px 0;
@@ -21,18 +21,13 @@
 }
 
 #header {
-  max-width: ($max_width + 20) * 1px;
+  max-width: 750px;
   width: 100%;
-  float: inherit;
   background-position: center top;
   background-repeat: no-repeat;
   margin: 0 auto;
   height: 120px;
   background-color: #fff;
-
-  @media screen and (max-width: 48em) {
-    height: 120px;
-  }
 }
 
 header {
@@ -56,7 +51,6 @@ header .logo a {
 
 .floating header .logo a {
   width: 39px;
-  //background: red;
 }
 
 header .logo a h1 {

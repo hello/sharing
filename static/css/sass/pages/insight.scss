@@ -1,9 +1,9 @@
 .insight #header {
-  height: 370px;
-  background-repeat: repeat-x!important;
+  height: 350px;
   background-position: center bottom!important;
+  background-size: 750px 376px;
 
-  @media screen and (max-width: 48em) {
+  @media screen and (max-width: 42em) {
     background-size: cover;
     //background-position: center top;
     height: 185px;
@@ -22,10 +22,9 @@ body.insight {
   text-align: left;
 }
 
-
 .insight .text p {
   color: #162B48;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5em;
   font-weight: 400;
   padding-bottom: 15px;
@@ -38,19 +37,15 @@ body.insight {
 .insight .text blockquote {
   border-left: 4px solid #E8EAED;
   padding-left: 15px;
-  margin: 30px 0 20px 0;
+  margin: 20px 0 20px 0;
 
-  @media screen and (max-width: 48em) {
-    margin: 20px 0 15px 0;
-  }
 }
 
 .insight .text blockquote p {
   color: #5C6B7F;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5em;
   font-weight: 400;
-
 }
 
 .insight .text blockquote p:last-of-type {
@@ -58,16 +53,15 @@ body.insight {
 }
 
 .insight .text h5 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   color: #162B48;
-  padding-top: 50px;
+  padding-top: 30px;
 
   @media screen and (max-width: 48em) {
     padding-top: 20px;
   }
 }
-
 
 .insight .text h6 {
   font-size: 18px;

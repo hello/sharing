@@ -28,7 +28,7 @@
 {{ super() }}
 <style>
 .insight #header {
-  background-image: url({{hero.phone_2x}});
+  background-image: url({{hero.phone_3x}});
 }
 </style>
 {% endblock %}
@@ -36,8 +36,7 @@
 {% block content %}
 <section class="profile">
   <div class="pure-g">
-    <div class="pure-u-sm-1-24 pure-u-4-24"></div>
-    <div class="pure-u-sm-11-12 pure-u-16-24">
+    <div class="pure-u-24-24">
       {% if photo %}
         <img alt="" width="100" height="100" src="{{photo}}" />
       {% else %}
@@ -49,14 +48,13 @@
       <h3>{{name}}'s Sense</h3>
       <h4>{{category}} &#149; {{time}}</h4>
     </div>
-    <div class="pure-u-sm-1-24 pure-u-4-24"></div>
   </div>
 </section>
 
 <section class="text">
   <div class="pure-g">
-    <div class="pure-u-sm-1-24 pure-u-4-24"></div>
-    <div class="pure-u-sm-11-12 pure-u-16-24">
+    <div class="pure-u-sm-1-24 pure-u-3-24"></div>
+    <div class="pure-u-sm-11-12 pure-u-18-24">
       <h5>{{title}}</h5>
       {#<h6>{{subtitle}}</h6>#}
 
@@ -68,14 +66,14 @@
 
       {{content|safe}}
     </div>
-    <div class="pure-u-sm-1-24 pure-u-4-24"></div>
+    <div class="pure-u-sm-1-24 pure-u-3-24"></div>
   </div>
 </section>
 
 <section class="meet-sense">
   <div class="pure-g">
-    <div class="pure-u-sm-1-24 pure-u-7-24"></div>
-    <div class="pure-u-sm-11-12 pure-u-10-24">
+    <div class="pure-u-sm-1-24 pure-u-3-24"></div>
+    <div class="pure-u-sm-22-24 pure-u-18-24">
       <h5>Meet Sense</h5>
 
       <img src="/static/img/video.jpg" style="width:100%;margin: 15px 0" />
@@ -86,7 +84,7 @@
       </p>
 
     </div>
-    <div class="pure-u-sm-1-24 pure-u-7-24"></div>
+    <div class="pure-u-sm-1-24 pure-u-3-24"></div>
   </div>
 </section>
 

@@ -1,7 +1,8 @@
 <div id="header-container">
   <div class="background">
     {% if
-      page == 'sleep_score'
+      page == 'sleep_score' or
+      page == 'insight'
     %}
       <header class="pure-g dark animated fadeInDown">
     {% else %}
@@ -12,10 +13,10 @@
         <a href="/" title="Hello"><h1>Hello</h1></a>
       </div>
       <div class="pure-u-sm-11-24 pure-u-19-24">
-        <a href="javascript:return false;" class="mobile-menu">
+        {#<a href="javascript:return false;" class="mobile-menu">
           <span class="hamburger"></span>
           <span class="text">Menu</span>
-        </a>
+        </a>#}
         <ul>
           <li><a href="//{{root_domain}}" title="Learn about Sense">Learn about Sense</a></li>
         </ul>
