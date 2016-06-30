@@ -1,5 +1,7 @@
+Babel==2.3.3
 Flask==0.10.1
 Flask-Assets==0.10
+Flask-Babel==0.9
 Flask-Compress==1.2.1
 Flask-SSLify==0.1.5
 Flask-Session==0.2.3
