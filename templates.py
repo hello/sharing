@@ -29,14 +29,10 @@ def insight(item, payload, content, photo, uuid):
     return prepare_template(html)
 
 def strip_tags(raw_html, length=200):
-    cleanr = re.compile('<.*?>')
-    cleaned = re.sub(cleanr,'', raw_html).replace('\n', '')
-
-    return cleaned
+    cleaned = re.compile('<.*?>')
+    return re.sub(cleaned,'', raw_html).replace('\n', ' ')
 
 def prepare_template(html):
-    #html = html.replace('https://s3.amazonaws.com/hello-accounts', '//d1hlomd23snoaq.cloudfront.net')
-    #html = html.replace('https://s3.amazonaws.com/hello-data', '//d20cc2y87juqnq.cloudfront.net')
     html = html.replace('https://s3.amazonaws.com/hello-accounts', '//accounts.hellocdn.net')
     html = html.replace('https://s3.amazonaws.com/hello-data', '//data.hellocdn.net')
 
