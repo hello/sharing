@@ -18,7 +18,7 @@
   {% if page == 'sleep_score' %}
     <script src="//use.typekit.com/rul4dkx.js"></script>
   {% else %}
-    <script>
+    <script minify>
     (function(d) {
       var config = {
         kitId: 'rul4dkx',
@@ -41,19 +41,19 @@
 
   {% include 'components/footer.htm' %}
 
-  <script>
+  <script minify>
   {# Adroll #}
-  adroll_adv_id = "3RDGKGSDLZB53HVLAEXW37";
-  adroll_pix_id = "S6IKO662BJFNXPGPMPQMQY";
+  adroll_adv_id = '3RDGKGSDLZB53HVLAEXW37';
+  adroll_pix_id = 'S6IKO662BJFNXPGPMPQMQY';
   (function () {
     var _onload = function(){
       if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
       if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
-      var scr = document.createElement("script");
-      var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+      var scr = document.createElement('script');
+      var host = (('https:' == document.location.protocol) ? 'https://s.adroll.com' : 'http://a.adroll.com');
       scr.setAttribute('async', 'true');
-      scr.type = "text/javascript";
-      scr.src = host + "/j/roundtrip.js";
+      scr.type = 'text/javascript';
+      scr.src = host + '/j/roundtrip.js';
       ((document.getElementsByTagName('head') || [null])[0] ||
         document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
     };
@@ -64,8 +64,8 @@
   {# Mixpanel #}
   (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
   for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
-  mixpanel.init("5c7f244946a03a074ca6e5f7a7aec645");
-  mixpanel.identify("{{uuid}}");
+  mixpanel.init('5c7f244946a03a074ca6e5f7a7aec645');
+  mixpanel.identify('{{uuid}}');
 
   {# Google Analytics #}
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -77,6 +77,14 @@
   });
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
+
+  {# Twitter #}
+  !function(e,n,u,a){e.twq||(a=e.twq=function(){a.exe?a.exe.apply(a,arguments):
+  a.queue.push(arguments);},a.version='1',a.queue=[],t=n.createElement(u),
+  t.async=!0,t.src='//static.ads-twitter.com/uwt.js',s=n.getElementsByTagName(u)[0],
+  s.parentNode.insertBefore(t,s))}(window,document,'script');
+  twq('init','nv4xu');
+  twq('track','PageView');
 
   {# Facebook #}
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -90,15 +98,6 @@
   <noscript>
     <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=638653542916166&amp;ev=PageView&amp;noscript=1" />
   </noscript>
-
-  {#}<script src="//platform.twitter.com/oct.js"></script>
-  <script>
-  twttr.conversion.trackPid('l4rw6');
-  </script>
-  <noscript>
-    <img height="1" width="1" alt="" style="display:none" src="https://analytics.twitter.com/i/adsct?txn_id=l4rw6&amp;p_id=Twitter" />
-    <img height="1" width="1" alt="" style="display:none" src="//t.co/i/adsct?txn_id=l4rw6&amp;p_id=Twitter" />
-  </noscript>#}
 
   <script>
   /* <![CDATA[ */

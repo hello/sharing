@@ -1,4 +1,5 @@
 from flask import render_template
+from slimit import minify
 
 import re
 import os
@@ -37,7 +38,16 @@ def prepare_template(html):
     html = html.replace('https://s3.amazonaws.com/hello-data', '//data.hellocdn.net')
 
     if os.getenv('SHARING_APP_DEBUG'):
+        html = html.replace('<script minify>', '<script>')
         return html
+
+    javascript = re.findall('(?si)<script minify>(.*?)</script>', html)
+
+    for text in javascript:
+        minified = minify(text, mangle=True, mangle_toplevel=True)
+        html = html.replace(text, minified)
+
+    html = html.replace('<script minify>', '<script>')
 
     assets = re.findall('/static/(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', html)
 
