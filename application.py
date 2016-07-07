@@ -4,7 +4,7 @@ from flask import *
 from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel, lazy_gettext
 from flask.ext.compress import Compress
-from flask.ext.session import Session
+#from flask.ext.session import Session
 
 from flask_sslify import SSLify
 
@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 
 application = Flask(__name__)
 application.config.from_object('config')
-Session(application)
+#Session(application)
 sslify = SSLify(application)
 babel = Babel(application)
 Compress(application)
@@ -70,10 +70,12 @@ css = Bundle(
 assets.register('js_all', js)
 assets.register('css_all', css)
 
+if os.getenv('SHARING_APP_DEBUG'):
+    application.jinja_env.globals['debug'] = True
 application.jinja_env.globals['year'] = date.today().year
 application.jinja_env.globals['root_domain'] = os.getenv('ROOT_DOMAIN')
 
-"""@application.before_request
+@application.before_request
 def before_request():
     session.permanent = True
 
@@ -83,7 +85,7 @@ def before_request():
     if not hasattr(g, 'uuid'):
         g.uuid = session['uuid']
 
-    application.jinja_env.globals['uuid'] = session['uuid']"""
+    application.jinja_env.globals['uuid'] = session['uuid']
 
 @application.route('/dump_session', methods=['GET'])
 def dump_session():
@@ -101,8 +103,12 @@ def robots():
 def favicon():
     return send_file('static/img/favicon.png', mimetype='image/x-icon')
 
+@application.route('/trend/<uuid>')
+def trend(uuid):
+    return templates.trend()
+
 @application.route('/insight/<uuid>')
-def dynamo(uuid):
+def insight(uuid):
     dynamodb = boto3.resource('dynamodb')
 
     table = dynamodb.Table('sharing')
@@ -123,12 +129,11 @@ def dynamo(uuid):
 
     if 'info' in insight:
         content = json.loads(insight['info'])
-
     return templates.insight(insight, payload, content, photo, uuid)
 
 @application.route('/')
 def default():
-    return redirect('https://hello.is/')
+    return redirect('https://hello.is/', code=302)
 
 if __name__ == '__main__':
     logger.debug("Time is: %s", int(time.time() * 1000))
