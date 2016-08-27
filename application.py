@@ -70,7 +70,7 @@ css = Bundle(
 assets.register('js_all', js)
 assets.register('css_all', css)
 
-if os.getenv('SHARING_APP_DEBUG'):
+if os.getenv('APP_DEBUG'):
     application.jinja_env.globals['debug'] = True
 application.jinja_env.globals['year'] = date.today().year
 application.jinja_env.globals['root_domain'] = os.getenv('ROOT_DOMAIN')

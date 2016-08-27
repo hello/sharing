@@ -3,7 +3,7 @@ import os
 import pylibmc
 import logging
 
-if os.getenv('SHARING_APP_DEBUG'):
+if os.getenv('APP_DEBUG'):
     logging.debug('Debug mode')
 
     DEBUG = True

@@ -82,7 +82,7 @@ git aws.push -e marketing-staging
 
 To run the application locally, set this environment variable in your local machine
 ```
-export SHARING_APP_DEBUG=True
+export APP_DEBUG=True
 export ROOT_DOMAIN=hello.is
 export ROOT_CDN=hellocdn.net
 export MEMCACHED_HOSTNAME=localhost
